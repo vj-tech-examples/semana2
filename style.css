@@ -18,6 +18,12 @@ main {
   border-radius: 12px;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 h1 {
   text-align: center;
   text-transform: capitalize;
@@ -75,6 +81,13 @@ button {
 }
 #ingredientes li {
   cursor: pointer;
+}
+
+#ingredientes {
+  background-color: #f8f8f8;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
 #ingredientes li.feito {
