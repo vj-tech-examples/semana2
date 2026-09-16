@@ -1,3 +1,14 @@
+const traducoes = {
+    'chicken': 'frango',
+    'onion': 'cebola',
+    'garlic': 'alho',
+    'salt': 'sal',
+    'olive oil': 'azeite',
+};
+function traduzir(ingrediente) {
+    const chave = ingrediente.toLowerCase().trim();
+    return traducoes[chave] ?? ingrediente;
+}
 const input = document.getElementById('busca');
 const botao = document.getElementById('botao');
 const resultado = document.getElementById('resultado');
@@ -17,7 +28,7 @@ async function buscar(nome) {
             const nomeIng = receita[`strIngredient${i}`];
             const medida = receita[`strMeasure${i}`];
             if (nomeIng && nomeIng.trim() !== '') {
-                ingredientes.push(`${medida} ${nomeIng}`);
+                ingredientes.push(`${medida} ${traduzir(nomeIng)}`);
             }
         }
         resultado.innerHTML = `
@@ -38,4 +49,3 @@ botao.addEventListener('click', () => {
     buscar(input.value);
 });
 export {};
-//# sourceMappingURL=script.js.map

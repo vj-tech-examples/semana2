@@ -8,6 +8,19 @@ interface RespostaAPI {
   meals: Receita[] | null;
 }
 
+const traducoes: Record<string, string> = {
+  'chicken': 'frango',
+  'onion': 'cebola',
+  'garlic': 'alho',
+  'salt': 'sal',
+  'olive oil': 'azeite',
+};
+
+function traduzir(ingrediente: string): string {
+  const chave = ingrediente.toLowerCase().trim();
+  return traducoes[chave] ?? ingrediente;
+}
+
 const input = document.getElementById('busca') as HTMLInputElement;
 const botao = document.getElementById('botao') as HTMLButtonElement;
 const resultado = document.getElementById('resultado') as HTMLDivElement;
@@ -33,7 +46,7 @@ const receita: Receita = dados.meals[0]!;
       const medida = receita[`strMeasure${i}`];
 
       if (nomeIng && nomeIng.trim() !== '') {
-        ingredientes.push(`${medida} ${nomeIng}`);
+          ingredientes.push(`${medida} ${traduzir(nomeIng)}`);
       }
     }
 
