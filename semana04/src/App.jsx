@@ -9,8 +9,7 @@ function App() {
     async function buscar() {
       const resposta = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${busca}`)
       const dados = await resposta.json()
-      setReceitas(dados.meals)
-    }
+    setReceitas(dados.meals ?? [])    }
     buscar()
   }, [busca])
 
