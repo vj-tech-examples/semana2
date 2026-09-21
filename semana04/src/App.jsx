@@ -31,6 +31,7 @@ function App() {
             key={receita.idMeal}
             nome={receita.strMeal}
             categoria={receita.strCategory}
+            foto={receita.strMealThumb}
           />
         ))}
       </div>
