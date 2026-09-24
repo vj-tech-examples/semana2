@@ -1,4 +1,13 @@
-import { collection, addDoc, getDocs, query, where } from 'firebase/firestore'
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 export async function listarReceitas(uid) {
@@ -13,4 +22,12 @@ export async function criarReceita(uid, dados) {
     uid,
     criadoEm: new Date(),
   })
+}    
+
+export async function atualizarReceita(id, dados) {
+  await updateDoc(doc(db, 'receitas', id), dados)
+}
+
+export async function apagarReceita(id) {
+  await deleteDoc(doc(db, 'receitas', id))
 }
